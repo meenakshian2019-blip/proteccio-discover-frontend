@@ -188,7 +188,7 @@ Returns:
 ## Deployment Links
 
 Frontend:
-https://proteccio-discover-frontend.vercel.app/
+https://proteccio-discover-frontend.vercel.app
 
 Backend:
 https://proteccio-discover.onrender.com
