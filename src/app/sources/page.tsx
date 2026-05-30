@@ -57,6 +57,10 @@ export default function SourcesPage() {
           },
         }
       );
+      localStorage.setItem(
+  "analysisResults",
+  JSON.stringify(analyzeResponse.data)
+);
 
       console.log(analyzeResponse.data);
 
