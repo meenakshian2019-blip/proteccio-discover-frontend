@@ -7,6 +7,19 @@ export default function DiscoveryPage() {
   const [riskLevel, setRiskLevel] = useState("");
   const [riskScore, setRiskScore] = useState(0);
   const [search, setSearch] = useState("");
+  const [riskFilter, setRiskFilter] =
+  useState("");
+
+const [classificationFilter,
+  setClassificationFilter] =
+  useState("");
+
+const [sourceFilter, setSourceFilter] =
+  useState("");
+
+const [complianceFilter,
+  setComplianceFilter] =
+  useState("");
 
   useEffect(() => {
     const stored = localStorage.getItem("analysisResults");
@@ -62,6 +75,73 @@ export default function DiscoveryPage() {
   onChange={(e) => setSearch(e.target.value)}
   className="border p-2 rounded mb-4 w-full"
 />
+<div className="grid grid-cols-4 gap-4 mb-4">
+
+  <input
+    type="text"
+    placeholder="Global Search"
+    value={search}
+    onChange={(e) =>
+      setSearch(e.target.value)
+    }
+    className="border p-2 rounded"
+  />
+
+  <select
+    value={classificationFilter}
+    onChange={(e) =>
+      setClassificationFilter(
+        e.target.value
+      )
+    }
+    className="border p-2 rounded"
+  >
+    <option value="">
+      All Classifications
+    </option>
+    <option value="Personal Data">
+      Personal Data
+    </option>
+    <option value="Sensitive Personal Data">
+      Sensitive Personal Data
+    </option>
+    <option value="Financial Data">
+      Financial Data
+    </option>
+  </select>
+
+  <select
+    value={riskFilter}
+    onChange={(e) =>
+      setRiskFilter(
+        e.target.value
+      )
+    }
+    className="border p-2 rounded"
+  >
+    <option value="">
+      All Risk Levels
+    </option>
+    <option value="Low">Low</option>
+    <option value="Medium">Medium</option>
+    <option value="High">High</option>
+    <option value="Critical">
+      Critical
+    </option>
+  </select>
+
+  <input
+    type="text"
+    placeholder="Source"
+    value={sourceFilter}
+    onChange={(e) =>
+      setSourceFilter(
+        e.target.value
+      )
+    }
+    className="border p-2 rounded"
+  />
+</div>
 
       <div className="bg-white rounded-xl shadow overflow-hidden">
         <table className="w-full">
@@ -87,39 +167,33 @@ export default function DiscoveryPage() {
 
           <tbody>
             {detections
-  .filter(
-    (item) =>
+  .filter((item) => {
+    const globalMatch =
       item.field
-        .toLowerCase()
+        ?.toLowerCase()
         .includes(search.toLowerCase()) ||
       item.type
-        .toLowerCase()
-        .includes(search.toLowerCase())
-  )
-  .map(
-              (item, index) => (
-                <tr
-                  key={index}
-                  className="border-b"
-                >
-                  <td className="p-4">
-                    {item.field}
-                  </td>
+        ?.toLowerCase()
+        .includes(search.toLowerCase());
 
-                  <td className="p-4">
-                    {item.type}
-                  </td>
+    const classificationMatch =
+      !classificationFilter;
 
-                  <td className="p-4">
-                    {item.value}
-                  </td>
+    const riskMatch =
+      !riskFilter ||
+      riskLevel === riskFilter;
 
-                  <td className="p-4">
-                    {item.confidence}
-                  </td>
-                </tr>
-              )
-            )}
+    const sourceMatch =
+      !sourceFilter;
+
+    return (
+      globalMatch &&
+      classificationMatch &&
+      riskMatch &&
+      sourceMatch
+    );
+  })
+  .map((item, index) => ( <tr key={index} className="border-b" > <td className="p-4"> {item.field} </td> <td className="p-4"> {item.type} </td> <td className="p-4"> {item.value} </td> <td className="p-4"> {item.confidence} </td> </tr> ) )}
           </tbody>
         </table>
       </div>
