@@ -1,36 +1,208 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Proteccio Discover – Privacy Intelligence Platform
 
-## Getting Started
+## Overview
 
-First, run the development server:
+Proteccio Discover is a Privacy Intelligence and Data Governance platform developed as part of the Proteccio Data Internship Program.
 
-```bash
+The platform enables organizations to:
+
+* Discover sensitive data
+* Classify personal and confidential information
+* Perform data profiling
+* Analyze privacy risks
+* Monitor compliance posture
+* Generate governance insights
+* Export reports for auditing and review
+
+The project combines data ingestion, discovery, classification, mapping, profiling, governance, compliance intelligence, and reporting into a unified web platform.
+
+
+## Features
+
+### Authentication
+
+* User Registration
+* User Login
+* Session Management
+* Protected Dashboard Access
+* Supabase Authentication Integration
+
+### Dashboard
+
+* Total Scanned Records
+* Sensitive Data Count
+* High-Risk Dataset Count
+* Compliance Score
+* Risk Distribution Visualization
+
+### Source Management
+
+* CSV File Upload
+* Source Monitoring
+* Metadata Extraction
+* Upload Validation
+
+### Data Discovery
+
+* Sensitive Data Detection
+* Email Detection
+* Aadhaar Detection
+* Financial Data Detection
+* Detection Insights
+
+### Data Classification
+
+* Personal Data Classification
+* Sensitive Personal Data Classification
+* Financial Data Classification
+
+### Data Mapping
+
+* Source-to-Destination Mapping
+* Data Lineage Tracking
+
+### Data Profiling
+
+* Record Statistics
+* Sensitive Data Density Analysis
+* Risk Profiling
+
+### Risk Analysis
+
+* Risk Scoring
+* Risk Classification
+* Critical Dataset Identification
+
+### Compliance Intelligence
+
+* GDPR Indicators
+* DPDP Indicators
+* HIPAA Indicators
+* Governance Dashboard
+
+### Reporting
+
+* JSON Report Export
+* Discovery Results Reporting
+* Compliance Reporting
+
+## Technology Stack
+
+### Frontend
+
+* Next.js
+* React.js
+* Tailwind CSS
+* Recharts
+
+### Backend
+
+* Python
+* Flask
+* Flask-CORS
+
+### Database & Authentication
+
+* Supabase
+* PostgreSQL
+
+### Deployment
+
+* Vercel (Frontend)
+* Render (Backend)
+
+
+## Architecture
+
+Data Source
+→ Data Ingestion
+→ Data Discovery
+→ Classification
+→ Data Mapping
+→ Data Profiling
+→ Risk Analysis
+→ Compliance Intelligence
+→ Reporting Dashboard
+
+## Project Structure
+
+Frontend:
+
+* Authentication
+* Dashboard
+* Sources
+* Discovery
+* Compliance
+* Reports
+
+Backend:
+
+* Upload APIs
+* Discovery APIs
+* Classification APIs
+* Mapping APIs
+* Profiling APIs
+* Risk Analysis APIs
+* Dashboard APIs
+
+## API Endpoints
+
+### Upload
+
+POST /upload
+
+Uploads source files for processing.
+
+### Analyze
+
+POST /analyze
+
+Performs:
+
+* Discovery
+* Classification
+* Mapping
+* Profiling
+* Risk Analysis
+
+### Dashboard Metrics
+
+GET /dashboard/metrics
+
+Returns:
+
+* Total scanned records
+* Sensitive records
+* High-risk datasets
+
+
+## Security Features
+
+* Environment Variable Configuration
+* Secure Authentication
+* API Key Validation
+* File Upload Validation
+* Sensitive Data Masking
+
+
+## Deployment Links
+
+Frontend:
+https://proteccio-discover-frontend.vercel.app/
+
+Backend:
+https://proteccio-discover.onrender.com
+
+
+## Test Credentials
+
+Email:
+demo@gmail.com
+
+Password:
+123456
+
+## To run
+In terminal:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
