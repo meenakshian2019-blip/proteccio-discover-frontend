@@ -193,7 +193,13 @@ const [complianceFilter,
       sourceMatch
     );
   })
-  .map((item, index) => ( <tr key={index} className="border-b" > <td className="p-4"> {item.field} </td> <td className="p-4"> {item.type} </td> <td className="p-4"> {item.value} </td> <td className="p-4"> {item.confidence} </td> </tr> ) )}
+  .map((item, index) => ( 
+  <tr key={index} className="border-b" > 
+  <td className="p-4"> {item.field} </td> 
+  <td className="p-4"> {item.type} </td> 
+  <td className="p-4"> {item.value} </td> 
+  <td className="p-4"> {item.confidence} </td> 
+  </tr> ) )}
           </tbody>
         </table>
       </div>
