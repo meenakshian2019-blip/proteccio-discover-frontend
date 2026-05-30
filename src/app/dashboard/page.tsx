@@ -105,27 +105,22 @@ fetchMetrics();
         </div>
       </div>
 
-      <div className="bg-white p-6 rounded-xl shadow">
-        <h2 className="text-2xl font-bold mb-6">
-          Risk Distribution
-        </h2>
-
-        <div
-  className="bg-white p-6 rounded-xl shadow mt-10"
-  style={{ width: "100%", height: 500 }}
+      <div
+  className="bg-white p-6 rounded-xl shadow"
+  style={{ height: 500 }}
 >
   <h2 className="text-2xl font-bold mb-6">
     Risk Distribution
   </h2>
 
-  <ResponsiveContainer width="100%" height="90%">
+  <ResponsiveContainer width="100%" height="85%">
     <PieChart>
       <Pie
         data={data}
         dataKey="value"
         cx="50%"
         cy="50%"
-        outerRadius={150}
+        outerRadius={140}
         label
       >
         {data.map((entry, index) => (
@@ -140,7 +135,6 @@ fetchMetrics();
     </PieChart>
   </ResponsiveContainer>
 </div>
-      </div>
     </div>
   );
 }
