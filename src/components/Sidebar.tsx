@@ -35,6 +35,16 @@ export default function Sidebar() {
           </Link>
         ))}
       </div>
+      <button
+  onClick={async () => {
+    const { supabase } = await import("@/lib/supabase");
+    await supabase.auth.signOut();
+    window.location.href = "/";
+  }}
+  className="w-full text-left p-3 rounded hover:bg-gray-800 mt-6"
+>
+  Logout
+</button>
     </div>
   );
 }

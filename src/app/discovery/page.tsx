@@ -6,6 +6,7 @@ export default function DiscoveryPage() {
   const [detections, setDetections] = useState<any[]>([]);
   const [riskLevel, setRiskLevel] = useState("");
   const [riskScore, setRiskScore] = useState(0);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const stored = localStorage.getItem("analysisResults");
@@ -54,6 +55,13 @@ export default function DiscoveryPage() {
           </p>
         </div>
       </div>
+      <input
+  type="text"
+  placeholder="Search detections..."
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+  className="border p-2 rounded mb-4 w-full"
+/>
 
       <div className="bg-white rounded-xl shadow overflow-hidden">
         <table className="w-full">
@@ -78,7 +86,17 @@ export default function DiscoveryPage() {
           </thead>
 
           <tbody>
-            {detections.map(
+            {detections
+  .filter(
+    (item) =>
+      item.field
+        .toLowerCase()
+        .includes(search.toLowerCase()) ||
+      item.type
+        .toLowerCase()
+        .includes(search.toLowerCase())
+  )
+  .map(
               (item, index) => (
                 <tr
                   key={index}
